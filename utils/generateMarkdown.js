@@ -10,7 +10,7 @@ function renderLicenseBadge(license) {
 
 const renderDescription = (title, description, link) => {
   if (link) {
-    return `${discription} View the application at [${title}](${link}).`;
+    return `${description} View the application at [${title}](${link}).`;
   } else {
     return `${description}`;
   }
@@ -120,10 +120,7 @@ function generateMarkdown(data) {
       header: 'Contribution',
       content: data.contribution
     },
-    {
-      header: 'Table of Contents',
-      content: renderToc(data.toc)
-    },
+    
 
   ];
 
@@ -144,13 +141,13 @@ function generateMarkdown(data) {
   repository
 }/issues) [![Issues](https://img.shields.io/github/contributors/${
   github
-}/${repo})](https://github.com/${github}/${
+}/${repository})](https://github.com/${github}/${
   repository
   }/graphs/contributors) ${renderLicenseBadge(license)}
 ## Description
 ${renderDescription(title, data.description, data.link)}
 ## Contents
-${renderToc(sectionArr)}
+${renderToc(sectionARR)}
 ${rmContents}`;
 
 }

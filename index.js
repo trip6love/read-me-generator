@@ -185,7 +185,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeRM(`./dist/${fileName}`, data, err => {
+    fs.writeFile(`./dist/${fileName}`, data, err => {
         if(err) {
             throw err
         };
@@ -202,3 +202,6 @@ function init() {
 init()
     .then(answers => generateMarkdown(answers))
     .then(generatedFile => writeToFile('ReadME.md',generatedFile))
+    .catch(err => {
+        console.log(err);
+    })
