@@ -29,15 +29,37 @@ const renderToc = contentsArr => {
   return dataList;
 }
 
+const renderInstall = install => {
+  if(install) {
+    return `To use this project please install the following:\`\`\` ${install} \`\`\``
+  } else {
+    return '';
+  }
+};
+
+
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {
+function renderLicense(license) {
   if(license) {
     return `This is licensed under ${license} license.`;
   } else {
     return '';
   }
 }
+
+const renderBuilt = built => {
+  let all = '';
+
+  if(built) {
+    built.forEach(item => {
+      all += ` *${item}`
+    });
+    return `${all}`;
+  } else {
+    return '';
+  };
+};
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -50,11 +72,11 @@ function generateMarkdown(data) {
   const sectionARR = [
     {
       header: 'License',
-      content: createLicense(license)
+      content: renderLicense(license)
     },
     {
       header: 'Installation',
-      content: createInstall(data.install)
+      content: renderInstall(data.install)
     },
     {
       header: 'Use',
@@ -62,7 +84,7 @@ function generateMarkdown(data) {
     },
     {
       header: 'Built With',
-      content: createBuild(data['built'])
+      content: renderBuilt(data['built'])
     },
     {
       header: 'Contact',
@@ -78,7 +100,7 @@ function generateMarkdown(data) {
     },
     {
       header: 'Table of Contents',
-      content: createToc(data.toc)
+      content: renderToc(data.toc)
     },
 
   ];
