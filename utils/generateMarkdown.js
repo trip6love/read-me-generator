@@ -24,6 +24,17 @@ function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+  const {title, github, repository, license} = date;
+  let rmContents = '';
+  const sectionARR = [
+    {
+      header: 'License',
+      content: createLicense(license)
+    },
+    
+    
+    
+  ]
   return `# ${data.title}
 
 `;

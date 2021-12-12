@@ -133,10 +133,26 @@ const questions = [
             if (licenseInput) {
                 return true;
             } else {
-                console.log('Please select')
+                console.log('Please select a license!')
                 return false;
             }
         }
+    },
+    {
+        type: 'checkbox',
+        name: 'built',
+        message: 'Please select the languages used for your application!',
+        choices: ['HTML' , 'CSS', 'JavaScript', 'Node.js'],
+        default: 0,
+        validate: builtInput => {
+            if(builtInput) {
+                return true;
+            } else {
+                console.log('Please select at least one language!')
+                return false;
+            }
+        }
+
     },
     {
         type: 'input',
