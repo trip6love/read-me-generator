@@ -31,10 +31,39 @@ function generateMarkdown(data) {
       header: 'License',
       content: createLicense(license)
     },
-    
+    {
+      header: 'Installation',
+      content: createInstall(data.install)
+    },
+    {
+      header: 'Use',
+      content: createUse(data.use)
+    },
+    {
+      header: 'Built With',
+      content: createBuild(data['built'])
+    },
+    {
+      header: 'Contact',
+      content: createContact(data.contact, repository, github)
+    },
+    {
+      header: 'Test',
+      content: createTest(data.test)
+    },
+    {
+      header: 'Contribution',
+      content: data.contribution
+    },
+    {
+      header: 'Table of Contents',
+      content: createToc(data.toc)
+    },
     
     
   ]
+
+  
   return `# ${data.title}
 
 `;
