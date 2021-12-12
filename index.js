@@ -156,6 +156,19 @@ const questions = [
     },
     {
         type: 'input',
+        name: 'link',
+        message: 'Please enter a link to your deployed work!',
+        validate: linkInput => {
+            if (linkInput) {
+                return true;
+            } else {
+                console.log('Please enter a link to your deployed application!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
         name: 'toc',
         message:'Please enter a table of contents!',
         validate: tocInput => {
