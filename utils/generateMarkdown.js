@@ -61,6 +61,28 @@ const renderBuilt = built => {
   };
 };
 
+const renderUse = (use) => {
+  return `${use}`
+};
+
+const renderTest = test => {
+  if(test) {
+    return `To use our applictaion install \`\`\` ${test} \`\`\` and run \`npm run test\` from your terminal.`
+  } else {
+    return '';
+  }
+}
+
+const renderContact = (email, github, repository) => {
+  if (email) {
+    return `Please, if you have any further questions contact me at ${email}, You will be able to find any addtional files at [${github}]`
+  } else {
+    return '';
+  }
+}
+
+
+
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
@@ -80,7 +102,7 @@ function generateMarkdown(data) {
     },
     {
       header: 'Use',
-      content: createUse(data.use)
+      content: renderUse(data.use)
     },
     {
       header: 'Built With',
@@ -88,11 +110,11 @@ function generateMarkdown(data) {
     },
     {
       header: 'Contact',
-      content: createContact(data.contact, repository, github)
+      content: renderContact(data.contact, repository, github)
     },
     {
       header: 'Test',
-      content: createTest(data.test)
+      content: renderTest(data.test)
     },
     {
       header: 'Contribution',
