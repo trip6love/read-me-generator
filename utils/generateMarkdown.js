@@ -8,6 +8,7 @@ function renderLicenseBadge(license) {
   }
 };
 
+//Creating a function that returns a discription 
 const renderDescription = (title, disc, link) => {
   if (link) {
     return `${disc}
@@ -19,6 +20,7 @@ const renderDescription = (title, disc, link) => {
 
 };
 
+// creating a function that returns a table of contents
 const renderToc = contentsArr => {
   let dataList = '';
   contentsArr.forEach((item)=> {
@@ -30,6 +32,7 @@ const renderToc = contentsArr => {
   return dataList;
 };
 
+// creating a function that returns installation instructions
 const renderInstall = install => {
   if(install) {
     return `To use this project please install the following:\`\`\` ${install} \`\`\``
@@ -49,6 +52,7 @@ function renderLicense(license) {
   }
 }
 
+//creating a function that returns what the application was built with
 const renderBuilt = built => {
   let all = '';
 
@@ -62,10 +66,12 @@ const renderBuilt = built => {
   };
 };
 
+// creating a function that returns use instructions
 const renderUse = (use) => {
   return `${use}`
 };
 
+// creating a function that returns how to test the app
 const renderTest = test => {
   if(test) {
     return `To use our applictaion install \`\`\` ${test} \`\`\` and run \`npm run test\` from your terminal.`
@@ -74,6 +80,7 @@ const renderTest = test => {
   }
 }
 
+// creating a function that returns contact info
 const renderContact = (email, github, repository) => {
   if (email) {
     return `Please, if you have any further questions contact me at ${email}, You will be able to find any addtional files at (https://github.com/${github}/${repository})`
@@ -81,12 +88,6 @@ const renderContact = (email, github, repository) => {
     return '';
   }
 }
-
-
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -125,6 +126,7 @@ function generateMarkdown(data) {
 
   ];
 
+  //Forming content section
   sectionArr.forEach((sectionData) => {
     if(sectionData.content && sectionData.header === 'Table of Contents') {
       readmeData += `### ${sectionData.header}
