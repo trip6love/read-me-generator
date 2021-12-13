@@ -128,29 +128,30 @@ function generateMarkdown(data) {
   sectionArr.forEach((sectionData) => {
     if(sectionData.content && sectionData.header === 'Table of Contents') {
       readmeData += `### ${sectionData.header}
-      ${sectionData.content}`
+${sectionData.content}
+`
     } else if (sectionData.content) {
       rmContents += `## ${sectionData.header}
-      ${sectionData.content}`;
+${sectionData.content}
+`;
     }
   })
   
   return `# ${title}
 [![Issues](https://img.shields.io/github/issues/${github}/${
-  repository
-})](https://github.com/${github}/${
-  repository
-}/issues) [![Issues](https://img.shields.io/github/contributors/${
-  github
-}/${repository})](https://github.com/${github}/${
-  repository
+    repository
+  })](https://github.com/${github}/${
+    repository
+  }/issues) [![Issues](https://img.shields.io/github/contributors/${
+    github
+  }/${repository})](https://github.com/${github}/${
+    repository
   }/graphs/contributors) ${renderLicenseBadge(license)}
 ## Description
 ${renderDescription(title, data.disc, data.link)}
 ## Contents
 ${renderToc(sectionArr)}
 ${rmContents}`;
-
 }
 
 module.exports = generateMarkdown;
