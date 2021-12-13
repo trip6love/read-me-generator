@@ -4,4 +4,4 @@ The ReadME Generator is a perfect tool to help a user create a readme file. By d
 
 # Process Recording
 
-[Video]()
+[Video](https://watch.screencastify.com/v/tYa4NSLqRgq3vLgmBvho)

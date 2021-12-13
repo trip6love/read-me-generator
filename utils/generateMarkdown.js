@@ -74,7 +74,7 @@ const renderUse = (use) => {
 // creating a function that returns how to test the app
 const renderTest = test => {
   if(test) {
-    return `To use our applictaion install \`\`\` ${test} \`\`\` and run \`npm run test\` from your terminal.`
+    return `To use our applictaion install \`\`\` ${test} \`\`\` and run \`node index.js\` from your terminal.`
   } else {
     return '';
   }
