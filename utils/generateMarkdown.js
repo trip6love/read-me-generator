@@ -8,11 +8,13 @@ function renderLicenseBadge(license) {
   }
 };
 
-const renderDescription = (title, description, link) => {
+const renderDescription = (title, disc, link) => {
   if (link) {
-    return `${description} View the application at [${title}](${link}).`;
+    return `${disc}
+    
+  View the application at [${title}](${link}).`;
   } else {
-    return `${description}`;
+    return `${disc}`;
   }
 
 };
@@ -20,14 +22,13 @@ const renderDescription = (title, description, link) => {
 const renderToc = contentsArr => {
   let dataList = '';
   contentsArr.forEach((item)=> {
-    if(item.content && item.header === 'Table of Contents') {
-      dataList += ` *[${item.header}](#${(item.header).toLowerCase()})`;
-    } else if (item.content) {
-      dataList += `*[${item.header}](#${(item.header).toLowerCase().split(' ').join('-')})`
+    if (item.content) {
+      dataList += `* [${item.header}](#${(item.header).toLowerCase().split(' ').join('-')})
+`;
     }
-  })
+  });
   return dataList;
-}
+};
 
 const renderInstall = install => {
   if(install) {
@@ -75,7 +76,7 @@ const renderTest = test => {
 
 const renderContact = (email, github, repository) => {
   if (email) {
-    return `Please, if you have any further questions contact me at ${email}, You will be able to find any addtional files at [${github}]`
+    return `Please, if you have any further questions contact me at ${email}, You will be able to find any addtional files at (https://github.com/${github}/${repository})`
   } else {
     return '';
   }
@@ -91,7 +92,7 @@ function renderLicenseSection(license) {}
 function generateMarkdown(data) {
   const {title, github, repository, license} = data;
   let rmContents = '';
-  const sectionARR = [
+  const sectionArr = [
     {
       header: 'License',
       content: renderLicense(license)
@@ -124,7 +125,7 @@ function generateMarkdown(data) {
 
   ];
 
-  sectionARR.forEach((sectionData) => {
+  sectionArr.forEach((sectionData) => {
     if(sectionData.content && sectionData.header === 'Table of Contents') {
       readmeData += `### ${sectionData.header}
       ${sectionData.content}`
@@ -145,9 +146,9 @@ function generateMarkdown(data) {
   repository
   }/graphs/contributors) ${renderLicenseBadge(license)}
 ## Description
-${renderDescription(title, data.description, data.link)}
+${renderDescription(title, data.disc, data.link)}
 ## Contents
-${renderToc(sectionARR)}
+${renderToc(sectionArr)}
 ${rmContents}`;
 
 }

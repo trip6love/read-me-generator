@@ -48,12 +48,12 @@ const questions = [
     {
         type: 'input',
         name: 'disc',
-        message:'Please enter a discription of your work!',
+        message:'Please enter a description of your work!',
         validate: discInput => {
             if (discInput) {
                 return true;
             } else {
-                console.log('Please enter a discription!')
+                console.log('Please enter a description!')
                 return false;
             }
         }
@@ -167,19 +167,7 @@ const questions = [
             }
         }
     },
-    {
-        type: 'input',
-        name: 'toc',
-        message:'Please enter a table of contents!',
-        validate: tocInput => {
-            if (tocInput) {
-                return true;
-            } else {
-                console.log('Please enter a table of contents!')
-                return false;
-            }
-        }
-    },
+    
     
 ];
 
